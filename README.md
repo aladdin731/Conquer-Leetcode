@@ -3,7 +3,7 @@
 ## Binary Search  二分法
 
 ###### 框架:
-- [x] 前提：有序！！！ Arrays.sort(nums)
+- [x] 前提：有序！！！ 【Arrays.sort(nums)--O(nlogn)】
 - [x] 时间复杂度：O(logn) 空间复杂度：O(1) 可以从时间复杂度倒推出二分法(增删改查的查！）
 - [x] 递归和迭代：能用迭代不要用递归 当递归深度到达10^5时会出现stackoverflow
 - [x] 万能迭代模版
