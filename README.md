@@ -11,7 +11,7 @@
 - [x] 习题：leetcode： lintcode：
 
 ### 1. 递归写法
-    ```
+    ```java
      private int binarySearchRecursion(int[] nums, int low, int high, int target) {
         if (low > high) {
             return -1;
