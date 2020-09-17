@@ -10,6 +10,9 @@
 - [x] 注意事项:  left = 0; right = nums.length - 1; 
                 mid = left + (right - left)/2; 
                 最后判断left和right位置的值
+- [x] 1. 题型分类：
+            1. 排序数据集上进行二分
+            1. 答案集上进行二分
 - [x] 习题：
         leetcode: 
         lintcode: 
