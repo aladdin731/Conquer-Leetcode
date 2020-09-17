@@ -32,9 +32,10 @@
     }
 ```
 
-### 2. 迭代万能模版 No.1
+### 2. 迭代万能模版——首选
+
+##### 找target那个值，返回index，没有就返回-1
 ```java
-    // 找target那个值，返回index，没有就返回-1
     public int binarySearch(int[] nums, int target) {
         // corner case
         if (nums == null || nums.length == 0) {
@@ -63,8 +64,8 @@
     }
 ```
 
+##### 当有很多target的时候，返回第1个target的位置
 ```java
-    // 当有很多target的时候，返回第一个target的位置
     public int binarySearch(int[] nums, int target) {
         // corner case
         if (nums == null || nums.length == 0) {
@@ -91,8 +92,8 @@
     }
 ```
 
+##### 当有很多target的时候，返回最后1个target的位置
 ```java
-    // 当有很多target的时候，返回最后一个target的位置
     public int binarySearch(int[] nums, int target) {
         // corner case
         if (nums == null || nums.length == 0) {
@@ -119,8 +120,9 @@
     }
 ```
 ### 3. 两外两种 迭代模版
+
+##### 找target那个值，返回index，没有就返回-1
 ```java
-    // 找target那个值，返回index，没有就返回-1
     public int binarySearch(int[] nums, int target) {
         // corner case
         if (nums == null || nums.length == 0) {
@@ -142,8 +144,8 @@
     }
 ```
 
+##### 找target那个值，返回index，没有就返回-1
 ```java
-    // 找target那个值，返回index，没有就返回-1
     public int binarySearch(int[] nums, int target) {
         // corner case
         if (nums == null || nums.length == 0) {
