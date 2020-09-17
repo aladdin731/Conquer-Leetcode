@@ -9,7 +9,9 @@
 - [x] 题型分类：
             1. 排序数据集上进行二分
             2. 答案集上进行二分
-- [x] leetcode：
+- [x] leetcode
+      * Item 1
+      * Item 2
 - [x] lintcode：
 
 
@@ -35,7 +37,7 @@
 
 ### 2. 迭代万能模版——首选
 
-##### 找target那个值，返回index，没有就返回-1
+##### target在数组中只有一个或没有 —— 找target那个值，返回index，没有就返回-1
 ```java
     public int binarySearch(int[] nums, int target) {
         // corner case
@@ -65,7 +67,7 @@
     }
 ```
 
-##### 当有很多target的时候，返回第1个target的位置
+##### target在数组中有多个，返回第1个target的位置
 ```java
     public int binarySearch(int[] nums, int target) {
         // corner case
@@ -93,7 +95,7 @@
     }
 ```
 
-##### 当有很多target的时候，返回最后1个target的位置
+##### target在数组中有多个，返回最后1个target的位置
 ```java
     public int binarySearch(int[] nums, int target) {
         // corner case
