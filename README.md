@@ -12,9 +12,17 @@
 - [x] 习题：   
 
 Source | Header | Keywords
------------- | ------------- | ------------------
-[leetcode704](https://leetcode.com/problems/binary-search/) |  Binary Search | 最基础的 找有没有target 
-Content in the first column | Content in the second column
+------------ | ---------------------- | ------------------
+[leetcode704](https://leetcode.com/problems/binary-search/) |  Binary Search | 找target本尊 target若有也只有一个 
+[leetcode374](https://leetcode.com/problems/guess-number-higher-or-lower/) |  Guess Number Higher or Lower |  找target本尊 target若有也只有一个 多个api接口纸老虎
+[leetcode278](https://leetcode.com/problems/first-bad-version/) |  First Bad Version |  找target本尊 target若有也只有一个 但这道题api接口只返回两种情况 
+[leetcode35](https://leetcode.com/problems/search-insert-position/) |  Search Insert Position |  找target能插入的第一个位置 或 比target小的值有几个
+[leetcode162](https://leetcode.com/problems/find-peak-element/) |  Find Peak Element |  找波峰 二分变形 最后单独判断部分变为找更高的值而不是target 上下坡来分左右
+
+[leetcode167](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) |  Two Sum II - Input array is sorted |  更多的是双指针
+[leetcode349](https://leetcode.com/problems/intersection-of-two-arrays/) |  Intersection of Two Arrays |  更多的是双指针
+[leetcode350](https://leetcode.com/problems/intersection-of-two-arrays-ii/) |  Intersection of Two Arrays II |  更多的是双指针
+
 
 
 ### 1. 递归写法(不推荐）
