@@ -11,7 +11,7 @@
 - [x] 习题：leetcode： lintcode：
 
 ### 1. 递归写法
-    ```java
+```
      private int binarySearchRecursion(int[] nums, int low, int high, int target) {
         if (low > high) {
             return -1;
@@ -28,9 +28,9 @@
         }
         return -1;
     }
-    ```
+```
 ### 2. 循环万能模版
-    '''
+```
     // 找target那个值，返回index，没有就返回-1
     public int binarySearch(int[] nums, int target) {
         // corner case
@@ -58,9 +58,9 @@
         }
         return -1;
     }
-    '''
-    
-    '''
+```
+
+```
     // 当有很多target的时候，返回第一个target的位置
     public int binarySearch(int[] nums, int target) {
         // corner case
@@ -86,9 +86,9 @@
         }
         return -1;
     }
-    '''
-    
-    '''
+```
+
+```
     // 当有很多target的时候，返回最后一个target的位置
     public int binarySearch(int[] nums, int target) {
         // corner case
@@ -114,6 +114,6 @@
         }
         return -1;
     }
-    '''
+```
     
 
