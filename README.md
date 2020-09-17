@@ -7,12 +7,12 @@
 - [x] 时间复杂度：O(logn) 空间复杂度：O(1) 可以从时间复杂度倒推出二分法(增删改查的查！）
 - [x] 递归和迭代：能用迭代不要用递归 当递归深度到达10^5时会出现stackoverflow
 - [x] 万能迭代模版
-- [x] 注意事项:  left = 0; right = nums.length - 1; 
-                mid = left + (right - left)/2; 
-                最后判断left和right位置的值
-- [x] 1. 题型分类：
-            1. 排序数据集上进行二分
-            1. 答案集上进行二分
+- [x] 注意事项:  - [x]left = 0; right = nums.length - 1; 
+                - [x]mid = left + (right - left)/2; 
+                - [x]最后判断left和right位置的值
+- [x] 题型分类：
+            - [x]排序数据集上进行二分
+            - [x]答案集上进行二分
 - [x] 习题：
         leetcode: 
         lintcode: 
