@@ -11,7 +11,7 @@
 - [x] 习题：leetcode： lintcode：
 
 ### 1. 递归写法
-    '''
+    ```
      private int binarySearchRecursion(int[] nums, int low, int high, int target) {
         if (low > high) {
             return -1;
@@ -28,7 +28,7 @@
         }
         return -1;
     }
-    '''
+    ```
 ### 2. 循环万能模版
     '''
     // 找target那个值，返回index，没有就返回-1
