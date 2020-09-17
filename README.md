@@ -4,13 +4,15 @@
 
 ###### 框架:
 - [x] 前提：有序！！！ Arrays.sort(nums)
-- [x] 时间复杂度：O(logn) 空间复杂度：O(1) 可以从时间复杂度倒推出二分法
+- [x] 时间复杂度：O(logn) 空间复杂度：O(1) 可以从时间复杂度倒推出二分法(增删改查的查！）
 - [x] 递归和迭代：能用迭代不要用递归 当递归深度到达10^5时会出现stackoverflow
-- [x] 万能模版 
+- [x] 万能迭代模版
 - [x] 注意事项：left = 0; right = nums.length - 1; mid = left + (right - left)/2; 最后判断left和right位置的值
-- [x] 习题：leetcode： lintcode：
+- [x] 习题：
+        leetcode: 
+        lintcode: 
 
-### 1. 递归写法
+### 1. 递归写法(不推荐）
 ```java
     private int binarySearchRecursion(int[] nums, int low, int high, int target) {
         if (low > high) {
@@ -30,7 +32,7 @@
     }
 ```
 
-### 2. 循环万能模版
+### 2. 迭代万能模版 No.1
 ```java
     // 找target那个值，返回index，没有就返回-1
     public int binarySearch(int[] nums, int target) {
@@ -116,5 +118,53 @@
         return -1;
     }
 ```
+### 3. 两外两种 迭代模版
+```java
+    // 找target那个值，返回index，没有就返回-1
+    public int binarySearch(int[] nums, int target) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int left = 0;
+        int right = nums.length-1; //决定了是 [left,right] 闭区间 也就决定了while中是 <=
+        while(left <= right){
+            int mid = left + (right-left)/2; // prevent overflow when right = Integer.MAX_VALUE
+            if(nums[mid] > target){ 
+                right = mid - 1;         
+            }else if(nums[mid] < target){
+                left = mid + 1;
+            }else {
+                return mid;
+            }
+        }
+        return -1;
+    }
+```
+
+```java
+    // 找target那个值，返回index，没有就返回-1
+    public int binarySearch(int[] nums, int target) {
+        // corner case
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int left = 0;
+        int right = nums.length; //决定了是 [left,right) 左闭右开区间 也就决定了while中是 <
+        while(left < right){
+            int mid = left + (right-left)/2; // prevent overflow when right = Integer.MAX_VALUE
+            if(nums[mid] > target){ 
+                right = mid;         
+            }else if(nums[mid] < target){
+                left = mid + 1;
+            }else {
+                return mid;
+            }
+        }
+        return -1;
+    }
+```
+
+
     
 
