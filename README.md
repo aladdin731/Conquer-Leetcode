@@ -3,8 +3,8 @@
 ## Binary Search  二分法
 
 - [x] 前提：有序！！！ 【Arrays.sort(nums)--O(nlogn)】
-- [x] 时间复杂度：O(logn) 空间复杂度：O(1) 可以从时间复杂度倒推出二分法(增删改查的查！）
-- [x] 递归和迭代：能用迭代不要用递归，当递归深度到达10^5时会出现stackoverflow
+- [x] 时间复杂度：从时间复杂度O(logn)倒推出二分法(增删改查的查）
+- [x] 递归和迭代：能用迭代不要用递归
 - [x] 万能迭代模版
 - [x] 题型分类：
             1. 排序数据集上进行二分
@@ -25,7 +25,7 @@ Source | Header | Keywords
 
 
 
-### 1. 递归写法(不推荐）
+### 1. 递归写法(不推荐，当递归深度到达10^5时会出现stackoverflow）
 ```java
     private int binarySearchRecursion(int[] nums, int low, int high, int target) {
         if (low > high) {
