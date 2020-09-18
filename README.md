@@ -26,6 +26,7 @@ Source | Header | Keywords
 [leetcode81](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) |  Search in Rotated Sorted Array II | duplicate33 最坏O(n) 
 [leetcode74](https://leetcode.com/problems/search-a-2d-matrix/) |Search a 2D Matrix| 二维数组化一维数组 mid/col mid%col  排序数集进行二分
 [leetcode240](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) | Search a 2D Matrix II | 非典型二分 右上角或左下角开始 O(max(m,n)) 排序数集进行二分
+[lintcode540](https://leetcode.com/problems/single-element-in-a-sorted-array/) | Single Element in a Sorted Array| 非典型二分
 [leetcode302](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels/) | Smallest Rectangle Enclosing Black Pixels |未排序数集进行二分 O(mlongn + nlongm)
 [leetcode658](https://leetcode.com/problems/find-k-closest-elements//) | Find K Closest Elements|排序数集进行二分 
 [lintcode183](https://www.lintcode.com/problem/wood-cut/description) | Wood Cut|答案集进行二分 
