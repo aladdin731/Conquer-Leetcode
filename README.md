@@ -202,7 +202,7 @@ Source | Header | Keywords
 
 Source | Header | Keywords
 ------------ | ---------------------- | -----------------------------------------------
-
+[lintcode 333](https://www.lintcode.com/problem/identifying-strings/description) |  identifying-strings | 找能识别出自己的最小前缀
 
 ### 1. Array实现Trie
 ```java
