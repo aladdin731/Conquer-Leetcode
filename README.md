@@ -192,5 +192,78 @@ Source | Header | Keywords
 ```
 
 
+
+## Trie 字典树
+
+- [x] 前缀树 字母树 哈希树的变种 用来查询前缀
+- [x] 时间复杂度： O(word.length()) 空间复杂度: O(N * word.length * 26) 用空间换取时间
+- [x] 各种函数的写法
+- [x] 习题：   
+
+Source | Header | Keywords
+------------ | ---------------------- | -----------------------------------------------
+
+
+### 1. 实现Trie
+```java
+class Trie {
+    private Trie[] sons;
+    private boolean isWord;
+    private String word;
+    /** Initialize your data structure here. */
+    public Trie() {
+        // 0 - 26 对应 a 到 z
+        sons = new Trie[26];
+        for (Trie son : sons) {
+            son = null;
+        }
+        isWord = false;
+        word = null;
+    }
+    
+    /** Inserts a word into the trie. */
+    public void insert(String word) {
+        int L = word.length();
+        Trie node = this;
+        for (int i = 0; i < L; i++) {
+            char letter = word.charAt(i);
+            if (node.sons[letter - 'a'] == null) {
+                node.sons[letter - 'a'] = new Trie();
+            }
+            node = node.sons[letter - 'a'];
+        }
+        node.isWord = true;
+        node.word = word;
+    }
+    
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        int L = word.length();
+        Trie node = this;
+        for (int i = 0; i < L; i++) {
+            char letter = word.charAt(i);
+            if (node.sons[letter - 'a'] == null) {
+                return false;
+            }
+            node = node.sons[letter - 'a'];
+        }
+        return node.isWord;
+    }
+    
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String prefix) {
+        int L = prefix.length();
+        Trie node = this;
+        for (int i = 0; i < L; i++) {
+            char letter = prefix.charAt(i);
+            if (node.sons[letter - 'a'] == null) {
+                return false;
+            }
+            node = node.sons[letter - 'a'];
+        }
+        return true;
+    }
+}
+```
     
 
