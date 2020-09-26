@@ -197,14 +197,14 @@ Source | Header | Keywords
 
 - [x] 前缀树 字母树 哈希树的变种 用来查询前缀
 - [x] 时间复杂度： O(word.length()) 空间复杂度: O(N * word.length * 26) 用空间换取时间
-- [x] 各种函数的写法
+- [x] 各种函数的写法 array && hashmap实现Trie
 - [x] 习题：   
 
 Source | Header | Keywords
 ------------ | ---------------------- | -----------------------------------------------
 
 
-### 1. 实现Trie
+### 1. Array实现Trie
 ```java
 class Trie {
     private Trie[] sons;
@@ -260,6 +260,60 @@ class Trie {
                 return false;
             }
             node = node.sons[letter - 'a'];
+        }
+        return true;
+    }
+}
+```
+
+### 2. HashMap实现Trie
+```java
+public class Trie {
+    private Map<Character, Trie> sons;
+    private boolean isWord;
+    private String word;
+    public Trie() {
+        sons = new HashMap<>();
+        isWord = false;
+        word = null;
+    }
+
+    public void insert(String word) {
+        int L = word.length();
+        Trie node = this;
+        for (int i = 0; i < L; i++) {
+            char letter = word.charAt(i);
+            if (!node.sons.containsKey(letter)) {
+                node.sons.put(letter, new Trie());
+            }
+            node = node.sons.get(letter);
+        }
+        node.isWord = true;
+        node.word = word;
+    }
+
+    public boolean search(String word) {
+        int L = word.length();
+        Trie node = this;
+        for (int i = 0; i < L; i++) {
+            char letter = word.charAt(i);
+            if (!node.sons.containsKey(letter)) {
+                return false;
+            }
+            node = node.sons.get(letter);
+        }
+        return node.isWord;
+    }
+
+    public boolean startsWith(String prefix) {
+        int L = prefix.length();
+        Trie node = this;
+        for (int i = 0; i < L; i++) {
+            char letter = prefix.charAt(i);
+            if (!node.sons.containsKey(letter)) {
+                return false;
+            }
+            node = node.sons.get(letter);
         }
         return true;
     }
