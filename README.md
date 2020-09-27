@@ -202,7 +202,15 @@ Source | Header | Keywords
 
 Source | Header | Keywords
 ------------ | ---------------------- | -----------------------------------------------
-[lintcode 333](https://www.lintcode.com/problem/identifying-strings/description) |  identifying-strings | 找能识别出自己的最小前缀
+[lintcode 333](https://www.lintcode.com/problem/identifying-strings/description) |  identifying-strings | 找能识别出自己的最小前缀 
+[leetcode 211](https://leetcode.com/problems/design-add-and-search-words-data-structure/) |  design-add-and-search-words-data-structure | "." any
+[leetcode 212](https://leetcode.com/problems/word-search-ii/) |  word-search-ii | 回溯和字典树 
+[lintcode 1848](https://www.lintcode.com/problem/word-search-iii/description) |  word-search-iii | 同时出现的最大数量的集合 单词不重复 回溯和字典树
+[lintcode 635](https://www.lintcode.com/problem/boggle-game/description) | boggle-game | 同时出现的最大数量 但单词可以重复 回溯和字典树
+[lintcode 775](https://www.lintcode.com/problem/palindrome-pairs/description) | palindrome-pairs | 
+
+
+
 
 ### 1. Array实现Trie
 ```java
