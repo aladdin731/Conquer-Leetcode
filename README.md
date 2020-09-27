@@ -226,7 +226,6 @@ Source | Header | Keywords
 [lintcode 1624](https://www.lintcode.com/problem/max-distance/description) | max-distance | 难
 [lintcode 1221](https://www.lintcode.com/problem/concatenated-words/description) | concatenated-words | dp 难
 [lintcode 623](https://www.lintcode.com/problem/k-edit-distance/description) | k-edit-distance | dp 难
-
 [lintcode 1248](https://www.lintcode.com/problem/k-edit-distance/description) | k-edit-distance | 异或运算 中等
 [lintcode 722](https://www.lintcode.com/problem/maximum-subarray-vi/description) | maximum-subarray-vi |  超难
 
