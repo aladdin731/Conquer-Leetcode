@@ -191,13 +191,30 @@ Source | Header | Keywords
     }
 ```
 
+## bit  位运算
+
+运算名称| 运算符号 | 运算性质 ｜ 解释
+------------ | ---------------------- | ---------------------------------------------- ｜ ---------
+与 ｜ & ｜ 同为1， 其他为0 ｜ 0假1真 都为真才真
+或 ｜ ｜｜ 同为0， 其他为1 ｜ 0假1真 都为假才假
+取反 ｜ ～ ｜ 1变0 0变1 ｜ 01互换
+异或 ｜ ^ ｜ 不同为1， 相同为0 ｜ 看是否相同
+左移 ｜ << ｜ 高位丢弃 低位补0 ｜ 
+右移 ｜ >> ｜ 低位丢弃 高位补0/1 ｜ 
+
+
+Source | Header | Keywords
+------------ | ---------------------- | -----------------------------------------------
+[leetcode704](https://leetcode.com/problems/binary-search/) |  Binary Search | 找target本尊 target若有也只有一个 
 
 
 ## Trie 字典树
 
 - [x] 前缀树 字母树 哈希树的变种 用来查询前缀
 - [x] 时间复杂度： O(word.length()) 空间复杂度: O(N * word.length * 26) 用空间换取时间
-- [x] 各种函数的写法 array && hashmap实现Trie
+- [x] 各种函数的写法（插入/查询单词存在/查询前缀存在） array && hashmap实现Trie
+- [x] 常见提示：不重复单词列表 （公共）前缀
+- [x] 字典树可以维护： 目标前缀的单词数/单词集合
 - [x] 习题：   
 
 Source | Header | Keywords
@@ -211,7 +228,12 @@ Source | Header | Keywords
 [lintcode 634](https://www.lintcode.com/problem/word-squares/description) | word-squares | 主对焦对称 难
 [lintcode 1624](https://www.lintcode.com/problem/max-distance/description) | max-distance | 难
 [lintcode 1221](https://www.lintcode.com/problem/concatenated-words/description) | concatenated-words | dp 难
-[lintcode 623](https://www.lintcode.com/problem/k-edit-distance/description) | k-edit-distance | 计划搜索 难
+[lintcode 623](https://www.lintcode.com/problem/k-edit-distance/description) | k-edit-distance | dp 难
+
+[lintcode 1248](https://www.lintcode.com/problem/k-edit-distance/description) | k-edit-distance | 异或运算 中等
+[lintcode 722](https://www.lintcode.com/problem/maximum-subarray-vi/description) | maximum-subarray-vi |  超难
+
+
 
 
 ### 1. Array实现Trie
