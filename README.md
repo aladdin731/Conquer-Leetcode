@@ -355,8 +355,7 @@ public class Trie {
 - [x] 中缀转后缀 -- 单调栈应用
 - [x] 利用算符优先级 构造 单调递增栈
 - [x] 从左至右扫描表达式 对于操作数字 放入结果
-- [x] 对于算符 栈不空 且 栈顶优先级大 弹栈
-- [x] 栈空 且 栈顶优先级小 压栈
+- [x] 对于算符 栈不空 且 栈顶优先级大 弹栈  栈空 且 栈顶优先级小 压栈 
 - [x] 弹出的元素除了括号均放入结果
 
 名称 | 符号 | 优先级
@@ -369,6 +368,11 @@ public class Trie {
 除号 |/| 3
 左括号 |（ |max
 
+- [x] 习题
+Source | Header | Keywords
+------------ | ---------------------- | -----------------------------------------------
+[lintcode 368](https://www.lintcode.com/problem/expression-evaluation/description) | expression-evaluation| 表达式求值
+[leetcode 367](https://www.lintcode.com/problem/expression-tree-build/description) |  expression-tree-build | 表达树构造
 
 
     
