@@ -487,7 +487,8 @@ class SegmentTree{
 
 Source | Header | Keywords
 ------------ | ---------------------- | -----------------------------------------------
-[lintcode 201/202/203/206/207 ](https://www.lintcode.com/problem/interval-sum/description) |interval-sum | M
+[lintcode 201/202/203/206/207 ](https://www.lintcode.com/problem/interval-sum-ii/description) |interval-sum-ii | M
+[lintcode 751 ](https://www.lintcode.com/problem/johns-business/description) |johns-business | M
 
 
 
