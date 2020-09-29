@@ -403,5 +403,93 @@ Source | Header | Keywords
 
 
 
+## Segment Tree 线段树 O(logN)
+
+- [x] 处理区间问题
+- [x] 是一个二叉树 叶子节点表示单点[i,i] 非叶子结点表示区间[i,j]
+- [x] 线段树构造
+```java
+   class SegmentTreeNode {
+    public int start, end; //区间端点
+    public SegmentTreeNode left, right; //左右儿子
+    public int intervalSum;
+    
+    public SegmentTreeNode(int start, int end, int x) {
+        this.start = start;
+        this.end = end;
+        this.intervalSum = x;
+        this.left = null;
+        this.right = null;
+    }
+}
+```
+```java
+   class SegmentTree{
+    SegmentTreeNode root;
+    public SegmentTree(int[] nums, int start, int end) {
+        this.root = construct(nums,start,end);
+    }
+    public SegmentTreeNode construct(int[] nums, int start, int end) {
+        if(start > end) {
+            return null;
+        }
+        SegmentTreeNode node = new SegmentTreeNode(start, end, 0);
+        if (start < end) {
+            int mid = start + (end - start) / 2;
+            node.left = construct(nums, start, mid); //[start, mid]
+            node.right = construct(nums, mid + 1, end); //[mid + 1, end]
+            if(node.left != null) {
+                node.intervalSum += node.left.intervalSum;
+            }
+            if(node.right != null) {
+                node.intervalSum += node.right.intervalSum;
+            }
+        }else { // start == end
+            node.intervalSum = nums[start];
+        }
+        return node;
+    }
+    public void modify(SegmentTreeNode root, int index, int value) {
+        if(root.start == index && root.end == index) {
+            root.intervalSum = value;
+            return;
+        }
+        int mid = root.start + (root.end - root.start) / 2;
+        if (root.start <= index && index <= mid) {
+            modify(root.left, index, value);
+        }
+        if (mid < index && index <= root.end) {
+            modify(root.right, index, value);
+        }
+        root.intervalSum = root.left.intervalSum + root.right.intervalSum;
+    }
+    
+    public int query(SegmentTreeNode root, int start, int end) {
+        if (root.start == start && root.end == end) {
+            return root.intervalSum;
+        }
+        int res = 0;
+        int mid = root.start + (root.end - root.start) / 2;
+        if (start <= mid && mid < end) {
+            res += query(root.left, start, mid);
+            res += query(root.right, mid + 1, end);
+        }else if (start > mid) {
+            res += query(root.right, start, end);
+        }else if (end <= mid){
+            res += query(root.left, start, end);
+        }
+        return res;
+    }
+}
+```
+
+- [x] 习题
+
+Source | Header | Keywords
+------------ | ---------------------- | -----------------------------------------------
+[lintcode 201/202/203/206/207 ](https://www.lintcode.com/problem/interval-sum/description) |interval-sum | M
+
+
+
 
 
