@@ -409,7 +409,7 @@ Source | Header | Keywords
 - [x] 是一个二叉树 叶子节点表示单点[i,i] 非叶子结点表示区间[i,j]
 - [x] 线段树构造
 ```java
-   class SegmentTreeNode {
+class SegmentTreeNode {
     public int start, end; //区间端点
     public SegmentTreeNode left, right; //左右儿子
     public int intervalSum;
@@ -424,7 +424,7 @@ Source | Header | Keywords
 }
 ```
 ```java
-   class SegmentTree{
+class SegmentTree{
     SegmentTreeNode root;
     public SegmentTree(int[] nums, int start, int end) {
         this.root = construct(nums,start,end);
