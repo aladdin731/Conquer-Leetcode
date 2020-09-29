@@ -376,5 +376,32 @@ Source | Header | Keywords
 [leetcode 367](https://www.lintcode.com/problem/expression-tree-build/description) |  expression-tree-build | 表达树构造
 
 
-    
+## 单调栈 O(n)
+
+- [x] 栈内元素按照某种规则（一般为数字大小）单调， 出现破坏单调性的元素时，需对栈进行调整
+- [x] 每个元素均入栈出栈各一次 所以为O(n)
+- [x] 思路
+```java
+   loop data in dataSet:
+        while stack not empty and 单调性不存在
+            stack.pop
+        stack.push(data)
+```
+- [x] 栈顶 nums[stack[-1] / stack.peek()]
+- [x] 入栈元素 nums[i] / i
+- [x] 单调性存在 栈顶 大于/小于 入栈元素
+- [x] 习题
+
+Source | Header | Keywords
+------------ | ---------------------- | -----------------------------------------------
+[lintcode 1852/leetcode 1475](https://www.lintcode.com/problem/final-discounted-price/description) | final-discounted-price| M 压入index
+[lintcode 285](https://www.lintcode.com/problem/tall-building/description) | tall-building| M 中间往两边 比所占位置高的开始单增
+[lintcode 122/leetcode 84](https://leetcode.com/problems/largest-rectangle-in-histogram/) | largest-rectangle-in-histogram| H 当前点当作最小值 中间到两边
+[lintcode 510 /leetcode 85](https://www.lintcode.com/problem/maximal-rectangle/description) | maximal-rectangle| H 中间扩展
+[lintcode 346](https://www.lintcode.com/problem/xorsum-of-interval-extremum/description) | xorsum-of-interval-extremum/description| H 异或
+[lintcode 347](https://www.lintcode.com/problem/maximum-number-expectation/description) | maximum-number-expectation | H 
+
+
+
+
 
