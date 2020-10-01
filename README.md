@@ -491,12 +491,16 @@ Source | Header | Keywords
 [lintcode 751 ](https://www.lintcode.com/problem/johns-business/description) |johns-business | M
 
 
-## 扫描线 
+## 扫描线 和 堆
 - [x] 区间并 矩形面积并 矩形周长并
 
 Source | Header | Keywords
 ------------ | ---------------------- | -----------------------------------------------
 [leetcode 253/lintcode 919](https://leetcode.com/problems/meeting-rooms-ii/) |meeting-rooms-ii| M
+[leetcode 42/lintcode 364](https://leetcode.com/problems/trapping-rain-water/) |trapping-rain-water| M
+[leetcode 407/lintcode 365](https://leetcode.com/problems/trapping-rain-water-ii/) |trapping-rain-water-ii| H
+
+
 
 
 
