@@ -503,8 +503,6 @@ Source | Header | Keywords
 [lintcode 81](https://www.lintcode.com/problem/find-median-from-data-stream/description) |find-median-from-data-stream| H 和 leetcode 295 不完全一样 数据流 
 [leetcode 352/lintcode 1280](https://leetcode.com/problems/data-stream-as-disjoint-intervals/) |data-stream-as-disjoint-intervals| H
 
-[leetcode 857/lintcode 1512](https://leetcode.com/problems/minimum-cost-to-hire-k-workers/) |minimum-cost-to-hire-k-workers| H
-
 
 
 
