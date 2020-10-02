@@ -491,7 +491,7 @@ Source | Header | Keywords
 [lintcode 751 ](https://www.lintcode.com/problem/johns-business/description) |johns-business | M
 
 
-## 扫描线 和 堆
+## 扫描线 堆（找极值） 数据流
 - [x] 区间并 矩形面积并 矩形周长并
 
 Source | Header | Keywords
@@ -499,6 +499,11 @@ Source | Header | Keywords
 [leetcode 253/lintcode 919](https://leetcode.com/problems/meeting-rooms-ii/) |meeting-rooms-ii| M
 [leetcode 42/lintcode 364](https://leetcode.com/problems/trapping-rain-water/) |trapping-rain-water| M
 [leetcode 407/lintcode 365](https://leetcode.com/problems/trapping-rain-water-ii/) |trapping-rain-water-ii| H
+[leetcode 857/lintcode 1512](https://leetcode.com/problems/minimum-cost-to-hire-k-workers/) |minimum-cost-to-hire-k-workers| H
+[lintcode 81](https://www.lintcode.com/problem/find-median-from-data-stream/description) |find-median-from-data-stream| H 和 leetcode 295 不完全一样 数据流 
+[leetcode 352/lintcode 1280](https://leetcode.com/problems/data-stream-as-disjoint-intervals/) |data-stream-as-disjoint-intervals| H
+
+[leetcode 857/lintcode 1512](https://leetcode.com/problems/minimum-cost-to-hire-k-workers/) |minimum-cost-to-hire-k-workers| H
 
 
 
