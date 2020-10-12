@@ -192,6 +192,189 @@ Source | Header | Keywords
 ```
 
 
+## Binary Tree 二叉树
+
+- [x] PreOrder 
+- [x] InOrder 
+- [x] PostOrder
+- [x] 习题：   
+
+Source | Header | Keywords
+------------ | ---------------------- | -----------------------------------------------
+[leetcode144](https://leetcode.com/problems/binary-tree-preorder-traversal/) |  preorder-traversal |  
+[leetcode94](https://leetcode.com/problems/binary-tree-inorder-traversal/) |  inorder-traversal |  
+[leetcode145](https://leetcode.com/problems/binary-tree-postorder-traversal/) |  postorder-traversal |  
+
+### 1. PreOrder
+```java
+public static void preOrderTraversal(TreeNode root) {
+    if(root == null) {
+        return;
+    }
+    System.out.println(root.value);
+    preOrderTraversal(root.left);
+    preOrderTraversal(root.right);
+}
+```
+
+```java
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        preorderTraversal(root,res);
+        return res;
+    }
+    
+    public void preorderTraversal(TreeNode root, List<Integer> res) {
+        if (root == null) {
+            return;
+        }
+        res.add(root.val);
+        preorderTraversal(root.left,res);
+        preorderTraversal(root.right,res);
+    }
+```
+
+```java
+public List<Integer> preorderTraversal(TreeNode root) {
+       // non recursion
+        List<Integer> result = new ArrayList<Integer>();
+        if(root == null) {
+            return result;
+        }
+        
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        
+        while(!stack.isEmpty()) {
+           TreeNode cur = stack.pop();
+           result.add(cur.val);
+           if (cur.right != null) stack.push(cur.right);
+           if (cur.left != null) stack.push(cur.left);
+        }
+        return result;
+    }
+```
+
+### 2. InOrder
+```java
+public static void inOrderTraversal(TreeNode root) {
+    if(root == null) {
+        return;
+    }
+    inOrderTraversal(root.left);
+    System.out.println(root.value);
+    inOrderTraversal(root.right);
+}
+```
+
+```java
+public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        inorderTraversal(root,res);
+        return res;
+    }
+    
+    public void inorderTraversal(TreeNode root, List<Integer> res) {
+        if (root == null) {
+            return;
+        }
+        inorderTraversal(root.left,res);
+        res.add(root.val);
+        inorderTraversal(root.right,res);
+    }   
+```
+
+```java
+public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode dummy = new TreeNode(-1);
+        TreeNode c  = dummy;
+        dummy.right = root;
+        stack.push(c);
+        
+        while (!stack.isEmpty()) {
+            c = stack.pop();
+            if (c.right != null) {
+                c= c.right;
+                while (c != null) {
+                    stack.push(c);
+                    c = c.left;
+                }
+            }
+            if (!stack.isEmpty()) {
+                res.add(stack.peek().val);
+            }
+        }
+        return res;   
+    }
+```
+
+### 3. PostOrder
+```java
+public static void postOrderTraversal(TreeNode root) {
+    if(root == null) {
+        return;
+    }
+    postOrderTraversal(root.left);
+    postOrderTraversal(root.right);
+    System.out.println(root.value);
+}
+```
+
+```java
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        postorderTraversal(root,res);
+        return res;
+    }
+
+    public void postorderTraversal(TreeNode root, List<Integer> res) {
+        if (root == null) {
+            return ;
+        }
+        postorderTraversal(root.left,res);
+        postorderTraversal(root.right,res);
+        res.add(root.val);
+    }
+```
+
+```java
+public List<Integer> postorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> res = new ArrayList<>();
+        TreeNode p = null;
+        TreeNode c = root;
+        stack.push(root);
+        if (root == null) {
+            return res;
+        }
+        
+        while (!stack.isEmpty()) {
+            c = stack.peek();
+            if (p == null || p.left == c || p.right == c) {
+                if (c.left != null) {
+                    stack.push(c.left);
+                } else if (c.right != null) {
+                    stack.push(c.right);
+                }
+            } else if (c.left == p) {
+                if (c.right != null) {
+                    stack.push(c.right);
+                }
+            } else {
+                res.add(c.val);
+                stack.pop();
+            }
+            p = c;
+        }
+        return res;
+    }
+```
+
 ## Binary Search Tree 二叉搜索树
 
 - [x] Inorder 升序
@@ -206,7 +389,22 @@ Source | Header | Keywords
 Source | Header | Keywords
 ------------ | ---------------------- | -----------------------------------------------
 
+### 0. BST && TreeNode
+```java
+public class BST {
 
+    static class TreeNode {
+        public int value;
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(int value) {
+            this.value = value;
+        }
+    }
+
+    private TreeNode root;
+}
+```
 
 ### 0. BST && TreeNode
 ```java
