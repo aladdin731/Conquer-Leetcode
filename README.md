@@ -191,6 +191,236 @@ Source | Header | Keywords
     }
 ```
 
+
+## Binary Search Tree 二叉搜索树
+
+- [x] Inorder 升序
+- [x] 时间复杂度： 
+- [x] 无值相等的node
+- [x] 增
+- [x] 查
+- [x] 改
+- [x] 删
+- [x] 习题：   
+
+Source | Header | Keywords
+------------ | ---------------------- | -----------------------------------------------
+
+
+
+### 0. BST && TreeNode
+```java
+public class BST {
+
+    static class TreeNode {
+        public int value;
+        public TreeNode left;
+        public TreeNode right;
+        public TreeNode(int value) {
+            this.value = value;
+        }
+    }
+
+    private TreeNode root;
+}
+```
+### 1. 增
+```java
+public TreeNode insertNode(TreeNode root, TreeNode node) {
+        if (root == null) {
+            return node;
+        }
+        if (root.val < node.val) {
+            root.right = insertNode(root.right, node);
+        }
+        if (root.val > node.val) {
+            root.left = insertNode(root.left, node);
+        }
+        return root;
+    }
+```
+
+```java
+public void insert(int key) {
+        if (root == null) {
+            root = new TreeNode(key);
+            return;
+        }
+        TreeNode current = root;
+        TreeNode parent = null;
+        while (true) {
+            // parent先下移到current
+            parent = current;
+            if (key < parent.val) {
+                current = parent.left;
+                if (current == null) {
+                    parent.left = new TreeNode(key);
+                    return;
+                }
+            }else if (key > parent.val) {
+                current = parent.right;
+                if (current == null) {
+                    parent.right = new TreeNode(key);
+                    return;
+                }
+            }
+        }else {
+            return;
+        }
+    }
+```
+
+### 2. 查
+```java
+    public TreeNode searchBST(TreeNode root, TreeNode node) {
+        if (root == null || root.val == node.val) {
+            return root;
+        }
+        if (root.val < node.val) {
+            return searchBST(root.right, node);
+        }else if (root.val > node.val) {
+            return searchBST(root.left, node);
+        }
+    }
+```
+
+```java
+public TreeNode get(int key) {
+    TreeNode current = root;
+    while(current != null && current.value != key) {
+        if (key < current.value) {
+            current = current.left;
+        } else if (key > current.value) {
+            current =current.right;
+        }
+    }
+    return current == null ? null : current;
+}
+```
+
+### 3. 改
+```java
+    public void updateBST(TreeNode root, int target, int value) {
+        if (root == null) {
+            return;
+        }
+        if (root.val < target) {
+            updateBST(root.right, target, value);
+        }else if (root.val > target) {
+            updateBST(root.left, target, value);
+        }else {
+            root.val = value;
+        }
+    }
+```
+
+```java
+    public void updateBST(TreeNode root, int target, int value) {
+        TreeNode current = root;
+        while (current.val != target && current != null) {
+            if (key < current.value) {
+                current = current.left;
+            } else if (key > current.value) {
+                current = current.right;
+            } 
+        }
+        if (current == null) {
+            return;
+        }
+        if (current.val == target) {
+            current.val = value;
+        }
+    }
+```
+
+### 4. 删
+1. 删叶子结点 =null 即可 但要判断是否为root
+2. 删有一个孩子的节点 parent的left/right = 孩子 也要判断是否为root
+3. 删有两个孩子的节点 与左子树的最大值/右子树的最小值交换 并删叶子结点（返回1） 
+4. 记录isLeftChild来判断parent.left/right 
+
+```java
+public boolean delete(int key) {
+// 第一步 先找到要删除的点
+    TreeNode parent = root;
+    TreeNode current = root;
+    // 要记录是否为左孩子
+    boolean isLeftChild = false;
+    while(current != null && current.value != key) {
+        parent = current;
+        if(current.value  > key) {
+            isLeftChild = true;
+            current = current.left;
+        } else {
+            isLeftChild = false;
+            current = current.right;
+        }
+    }
+    if(current == null) {
+        return false;
+    }
+    // 如果没有返回false 那current此时就是找到的那个node 此时parent就是node的parent
+    // Case 1: 叶子结点
+    if(current.left == null && current.right == null) {
+    // 判断是否是根节点
+        if(current == root) {
+            root = null;
+        } else if(isLeftChild) {
+            parent.left = null;
+        } else {
+            parent.right = null;
+        }
+    // Case 2: 只有一个孩子
+    } else if (current.right == null) { //有一个左孩子
+        if(current == root) {
+            root = current.left;
+        } else if (isLeftChild) {
+            parent.left = current.left;
+        } else {
+            parent.right = current.left;
+        }
+    } else if (current.left == null) {
+        if(current == root) {
+            root = current.right;
+        } else if (isLeftChild) {
+            parent.left = current.right;
+        } else {
+            parent.right = current.right;
+        }
+    // Case 3: 有两个孩子
+    } else {
+        TreeNode successor = getSuccessor(current);
+        if (current == root) {
+            root = successor;
+        } else if (isLeftChild) {
+            parent.left = successor;
+        } else {
+            parent.right = successor;
+        }
+        successor.left = current.left;
+    }
+    return true;
+}
+
+private TreeNode getSuccessor(TreeNode node) {
+// 找右子树的最小值 还要判断这个最小值是不是就是node.right
+    TreeNode successor = null;
+    TreeNode successorParent = null;
+    TreeNode current = node.right;
+    while (current != null) {
+        successorParent = successor;
+        successor = current;
+        current = current.left;
+    }
+    // 此时current是null successor是node的右子树的最小节点 sp是successor的parent
+    if (successor != node.right) {
+        successorParent.left= successor.right;
+        successor.right = node.right;
+    }
+    return successor;
+}
+```
+
 ## bit  位运算
 
 运算名称 | 运算符号 | 运算性质 
