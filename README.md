@@ -204,6 +204,7 @@ Source | Header | Keywords
 [leetcode144](https://leetcode.com/problems/binary-tree-preorder-traversal/) |  preorder-traversal |  
 [leetcode94](https://leetcode.com/problems/binary-tree-inorder-traversal/) |  inorder-traversal |  
 [leetcode145](https://leetcode.com/problems/binary-tree-postorder-traversal/) |  postorder-traversal |  
+[leetcode145](https://leetcode.com/problems/binary-tree-postorder-traversal/) |  postorder-traversal |  
 
 ### 1. PreOrder
 ```java
@@ -287,29 +288,18 @@ public List<Integer> inorderTraversal(TreeNode root) {
 ```java
 public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        if (root == null) {
-            return res;
-        }
+        if (root == null) return res;
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode dummy = new TreeNode(-1);
-        TreeNode c  = dummy;
-        dummy.right = root;
-        stack.push(c);
-        
-        while (!stack.isEmpty()) {
-            c = stack.pop();
-            if (c.right != null) {
-                c= c.right;
-                while (c != null) {
-                    stack.push(c);
-                    c = c.left;
-                }
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
             }
-            if (!stack.isEmpty()) {
-                res.add(stack.peek().val);
-            }
+            root = stack.pop();
+            res.add(root.val);
+            root = root.right;
         }
-        return res;   
+        return res;
     }
 ```
 
@@ -344,35 +334,24 @@ public static void postOrderTraversal(TreeNode root) {
 
 ```java
 public List<Integer> postorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        List<Integer> res = new ArrayList<>();
-        TreeNode p = null;
-        TreeNode c = root;
-        stack.push(root);
-        if (root == null) {
+            LinkedList<Integer> res = new LinkedList<>();
+            if (root == null) {
+                return res;
+            }
+            Deque<TreeNode> stack = new ArrayDeque<>();
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                TreeNode cur = stack.pop();
+                res.addFirst(cur.val);
+                if (cur.left != null) {
+                    stack.push(cur.left);
+                }
+                if (cur.right != null) {
+                    stack.push(cur.right);
+                }
+            }
             return res;
         }
-        
-        while (!stack.isEmpty()) {
-            c = stack.peek();
-            if (p == null || p.left == c || p.right == c) {
-                if (c.left != null) {
-                    stack.push(c.left);
-                } else if (c.right != null) {
-                    stack.push(c.right);
-                }
-            } else if (c.left == p) {
-                if (c.right != null) {
-                    stack.push(c.right);
-                }
-            } else {
-                res.add(c.val);
-                stack.pop();
-            }
-            p = c;
-        }
-        return res;
-    }
 ```
 
 ## Binary Search Tree 二叉搜索树
